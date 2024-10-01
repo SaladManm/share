@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Modifier sous-catégorie - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h1 class="text-center text-primary fw-bold">Modifier la sous-catégorie</h1>
+        
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-8 bg-white p-4 border rounded">
+                
+                {{ form_start(form) }}
+                
+                <div class="form-group mb-3">
+                    <label for="numero" class="form-label">Numéro</label>
+                    {{ form_widget(form.numero, {'attr': {'class': 'form-control', 'placeholder': 'Numéro de la sous-catégorie'}}) }}
+                    {{ form_errors(form.numero) }}
+                </div>
+                
+                <div class="form-group mb-3">
+                    <label for="libelle" class="form-label">Libellé</label>
+                    {{ form_widget(form.libelle, {'attr': {'class': 'form-control', 'placeholder': 'Libellé de la sous-catégorie'}}) }}
+                    {{ form_errors(form.libelle) }}
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="categorie" class="form-label">Catégorie</label>
+                    {{ form_widget(form.categorie, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_errors(form.categorie) }}
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
+                    <a href="{{ path('app_liste_categories') }}" class="btn btn-secondary ms-2">Annuler</a>
+                </div>
+                
+                {{ form_end(form) }}
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
